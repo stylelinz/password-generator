@@ -30,6 +30,9 @@ module.exports = function pwdGen (option) {
     collection = collection.filter((item) => !excludeList.includes(item))
   }
 
+  // Empty collection handling
+  if (!collection.length) return 'The option is invalid.(empty collection)'
+
   const pwdLen = Number(option.length)
   let result = ''
   for (let i = 0; i < pwdLen; i++) {
