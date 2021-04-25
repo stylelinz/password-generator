@@ -67,11 +67,16 @@
               </div>
             </div>
 
+            {{#if password}}
+              <div class="alert alert-primary" role="alert">
+                {{password}}
+              </div>
+            {{/if}}
             <button class="btn btn-success" type="submit">Generate Password</button>
           </form>
         </div>
 
-        <small class="card-footer text-muted text-right">
+        <small class="card-footer text-muted text-end">
           Idea is inspired by <a href="https://passwordsgenerator.net/" target="_blank">Strong Random Password</a>
         </small>
       </div>

@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const exphdb = require('express-handlebars')
 const bodyParser = require('body-parser')
+const passwordGenerator = require('./password-generator')
 const port = 3000
 
 app.engine('handlebars', exphdb({ defaultLayout: 'main' }))
@@ -14,10 +15,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  // TODO: Finish this block.
   const formBody = req.body
-  console.log(formBody)
-  res.render('index', { formBody })
+  const password = passwordGenerator(formBody)
+  res.render('index', { password })
 })
 
 app.listen(port, () => {
